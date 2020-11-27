@@ -1,8 +1,14 @@
 
 #%%  post requestExample
 import requests
+import json
 dev_url = 'http://127.0.0.1:5000'
-res = requests.post(f'{dev_url}/api/requestExample').content
+payload = 'yoyoyoyo' 
+payload = {
+    "test1": "i'm from payload", 
+    "test2": "i'm also from payload",
+}
+res = requests.post(f'{dev_url}/api/requestExample', json=payload).content
 print(res)
 #%% get requestExample
 import requests

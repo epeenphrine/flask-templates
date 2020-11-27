@@ -24,9 +24,12 @@ def home():
 @app.route('/api/requestExample',methods = ['POST', 'GET'])
 def request_examples():
    if request.method == 'POST':
+      content = request.get_json(silent=True)
+      print(content)
       message = {
           'method': 'POST',
-          'message': 'post request was a success!'
+          'message': 'post request was a success!',
+          'content': content 
       }
       return message 
    if request.method =='GET':
